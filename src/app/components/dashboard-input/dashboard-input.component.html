@@ -1,0 +1,71 @@
+<div class="form__wrapper">
+  <form [formGroup]="userForm" #userFormm="ngForm" (ngSubmit)="onSubmit(userFormm)" class="form-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>User Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <mat-label>Posts</mat-label>
+              <input formControlName="posts" matInput placeholder="Enter Posts">
+              <mat-error *ngIf="userForm?.get('posts')?.errors?.required"> Posts information cannot be left blank
+              </mat-error>
+              <mat-error *ngIf="userForm?.get('posts')?.errors?.pattern"> Only numeric entry allowed
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="full-width">
+              <mat-label>Users</mat-label>
+              <input formControlName="users" matInput placeholder="Enter Users">
+              <mat-error *ngIf="userForm?.get('users')?.errors?.required"> Users information cannot be left blank
+              </mat-error>
+              <mat-error *ngIf="userForm?.get('users')?.errors?.pattern"> Only numeric entry allowed
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Engagement</mat-label>
+              <input formControlName="engagement" matInput placeholder="Enter Engagement">
+              <mat-error *ngIf="userForm?.get('engagement')?.errors?.required"> Engagement information cannot be left blank
+              </mat-error>
+              <mat-error *ngIf="userForm?.get('engagement')?.errors?.pattern"> Only numeric entry allowed
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="full-width">
+              <mat-label>Reach</mat-label>
+              <input formControlName="reach" matInput placeholder="Enter Reach">
+              <mat-error *ngIf="userForm?.get('reach')?.errors?.required"> Reach information cannot be left blank
+              </mat-error>
+              <mat-error *ngIf="userForm?.get('reach')?.errors?.pattern"> Only numeric entry allowed
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="full-width">
+                <mat-label>Impressions</mat-label>
+                <input formControlName="impressions" matInput placeholder="Enter Impressions">
+                <mat-error *ngIf="userForm?.get('impressions')?.errors?.required"> Impressions information cannot be left blank
+                </mat-error>
+                <mat-error *ngIf="userForm?.get('impressions')?.errors?.pattern"> Only numeric entry allowed
+                </mat-error>
+              </mat-form-field>
+            </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="onReset(userFormm)" mat-raised-button color="warn">Reset</button>
+        <button mat-raised-button [disabled]="!userForm.valid" type="submit" color="primary">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
